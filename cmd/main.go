@@ -2,8 +2,8 @@ package main
 
 import (
 	"log"
-	"logger/internal/handlers"
 	"logger/internal/mongo"
+	"logger/internal/routes"
 	"logger/internal/server"
 
 	"github.com/gin-contrib/cors"
@@ -17,8 +17,9 @@ func main() {
 	}
 	r := gin.Default()
 	r.Use(cors.Default())
-	r.POST("/data", handlers.DataHandler)
-	r.GET("/data", handlers.GetDataHandler)
+	// r.POST("/data", handlers.DataHandler)
+	// r.GET("/data", handlers.GetDataHandler)
+	routes.LogRoutes(r)
 
 	// can be used to start the server
 
